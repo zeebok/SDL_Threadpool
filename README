@@ -1,0 +1,3 @@
+Threadpool using SDL2
+
+Windows build target uses MinGW, so you need to compile/install SDL2 for that
