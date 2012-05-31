@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="threading" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug_Win32">
+				<Option platforms="Windows;" />
+<<<<<<< HEAD
+				<Option output="bin/Debug/threading.exe" prefix_auto="1" extension_auto="0" />
+=======
+				<Option output="bin/Debug/threading" prefix_auto="1" extension_auto="1" />
+>>>>>>> 39b907af4ea4367096692f4fcfce09dad1223db9
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="mingw32" />
+					<Add library="SDL2main" />
+					<Add library="SDL2" />
+					<Add library="pthread" />
+				</Linker>
+			</Target>
+			<Target title="Release_Win32">
+				<Option platforms="Windows;" />
+<<<<<<< HEAD
+				<Option output="bin/Release/threading.exe" prefix_auto="1" extension_auto="0" />
+=======
+				<Option output="bin/Release/threading" prefix_auto="1" extension_auto="1" />
+>>>>>>> 39b907af4ea4367096692f4fcfce09dad1223db9
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="bin/Debug/threading" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+<<<<<<< HEAD
+					<Add directory="include" />
+=======
+>>>>>>> 39b907af4ea4367096692f4fcfce09dad1223db9
+				</Compiler>
+				<Linker>
+					<Add option="`sdl2-config --libs`" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/threading" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`sdl2-config --libs`" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+<<<<<<< HEAD
+		<Unit filename="include/Event.h" />
+		<Unit filename="include/SDLThreadpool.h" />
+		<Unit filename="include/ThreadSafeQueue.h" />
+		<Unit filename="include/Updateable.h" />
+		<Unit filename="src/Event.cpp" />
+=======
+		<Unit filename="include/SDLThreadpool.h" />
+		<Unit filename="include/ThreadSafeQueue.h" />
+		<Unit filename="include/Updateable.h" />
+>>>>>>> 39b907af4ea4367096692f4fcfce09dad1223db9
+		<Unit filename="src/SDLThreadpool.cpp" />
+		<Unit filename="src/ThreadSafeQueue.cpp" />
+		<Unit filename="src/threading.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
