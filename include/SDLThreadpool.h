@@ -1,18 +1,50 @@
 #ifndef _SDLTHREADPOOL_H_
 #define _SDLTHREADPOOL_H_
 
+#include <stdio.h>
 #include <SDL2/SDL.h>
 
 #include "ThreadSafeQueue.h"
 #include "Updateable.h"
+#include "Event.h"
 
 class SDLThreadpool
 {
     private:
+        typedef enum {Work, Stop} ThreadStatus;
+        class Poison : public Updateable
+        {
+            private:
+                Event* dead;
+
+            public:
+                Poison(Event* dead)
+                {
+                    this->dead = dead;
+                }
+
+                int update(void)
+                {
+                    dead->trigger();
+
+                    return Stop;
+                }
+        };
+
         int maxThreads;
         SDL_Thread** pool;
+        ThreadStatus status;
 
         ThreadSafeQueue queue;
+
+        static int poolFunc(void* thisPointer);
+//        {
+//            SDLThreadpool* tp = (SDLThreadpool*) thisPointer;
+//            tp->process();
+//
+//            return 0;
+//        }
+        void process(void);
 
     public:
         SDLThreadpool(void);

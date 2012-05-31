@@ -8,7 +8,7 @@
 		<Build>
 			<Target title="Debug_Win32">
 				<Option platforms="Windows;" />
-				<Option output="bin/Debug/threading" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/threading.exe" prefix_auto="1" extension_auto="0" />
 				<Option object_output="obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -24,7 +24,7 @@
 			</Target>
 			<Target title="Release_Win32">
 				<Option platforms="Windows;" />
-				<Option output="bin/Release/threading" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/threading.exe" prefix_auto="1" extension_auto="0" />
 				<Option object_output="obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -42,6 +42,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="`sdl2-config --libs`" />
@@ -64,9 +65,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Event.h" />
 		<Unit filename="include/SDLThreadpool.h" />
 		<Unit filename="include/ThreadSafeQueue.h" />
 		<Unit filename="include/Updateable.h" />
+		<Unit filename="src/Event.cpp" />
 		<Unit filename="src/SDLThreadpool.cpp" />
 		<Unit filename="src/ThreadSafeQueue.cpp" />
 		<Unit filename="src/threading.cpp" />
