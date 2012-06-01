@@ -38,12 +38,6 @@ class SDLThreadpool
         ThreadSafeQueue queue;
 
         static int poolFunc(void* thisPointer);
-//        {
-//            SDLThreadpool* tp = (SDLThreadpool*) thisPointer;
-//            tp->process();
-//
-//            return 0;
-//        }
         void process(void);
 
     public:

@@ -23,7 +23,7 @@ void ThreadSafeQueue::push(Updateable* job)
 {
     SDL_LockMutex(lock);
     workQueue.push(job);
-    SDL_CondSignal(available);
+    SDL_CondBroadcast(available);
     SDL_UnlockMutex(lock);
 }
 

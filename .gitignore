@@ -1,4 +1,4 @@
-# Compiled Object files
+﻿# Compiled Object files
 *.slo
 *.lo
 *.o
@@ -15,3 +15,7 @@
 
 *.layout
 *.depend
+
+# Misc
+
+*.orig

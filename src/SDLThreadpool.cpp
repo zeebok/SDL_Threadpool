@@ -15,7 +15,7 @@ SDLThreadpool::SDLThreadpool()
 
 SDLThreadpool::~SDLThreadpool()
 {
-
+    delete[] pool;
 }
 
 void SDLThreadpool::addJob(Updateable* job)

@@ -27,13 +27,19 @@ class Entity : public Updateable
 int main(int argc, char** argv)
 {
     SDLThreadpool* pool = new SDLThreadpool();
-    Entity* test = new Entity(50);
+    Entity** test = new Entity*[30];
+
     for(int i = 0; i < 30; ++i)
-        pool->addJob(test);
+    {
+        test[i] = new Entity(i+1);
+    }
+
+    for(int i = 0; i < 30; ++i)
+        pool->addJob(test[i]);
 
     pool->closePool();
 
-    delete test;
+    delete[] test;
     delete pool;
 
     return 0;
