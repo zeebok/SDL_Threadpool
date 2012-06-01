@@ -15,12 +15,12 @@ class Entity : public Updateable
             this->health = health;
         }
 
-        int update(void)
+        Updateable::ThreadStatus update(void)
         {
             health--;
-            printf("Health: %d\n", health);
+            fprintf(stderr, "Health: %d\n", health);
 
-            return 0;
+            return Work;
         }
 };
 

@@ -4,7 +4,8 @@
 class Updateable
 {
     public:
-        virtual int update(void) = 0;
+        typedef enum {Work, Stop} ThreadStatus;
+        virtual ThreadStatus update(void) = 0;
 };
 
 #endif

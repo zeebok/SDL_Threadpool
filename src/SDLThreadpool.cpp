@@ -49,9 +49,9 @@ int SDLThreadpool::poolFunc(void* thisPointer)
 
 void SDLThreadpool::process(void)
 {
-    while(status != Stop)
+    while(status != Updateable::Stop)
     {
         Updateable* job = queue.pop();
-        job->update();
+        status = job->update();
     }
 }

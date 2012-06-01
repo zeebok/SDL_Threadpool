@@ -11,7 +11,6 @@
 class SDLThreadpool
 {
     private:
-        typedef enum {Work, Stop} ThreadStatus;
         class Poison : public Updateable
         {
             private:
@@ -23,7 +22,7 @@ class SDLThreadpool
                     this->dead = dead;
                 }
 
-                int update(void)
+                Updateable::ThreadStatus update(void)
                 {
                     dead->trigger();
 
@@ -33,7 +32,7 @@ class SDLThreadpool
 
         int maxThreads;
         SDL_Thread** pool;
-        ThreadStatus status;
+        Updateable::ThreadStatus status;
 
         ThreadSafeQueue queue;
 
