@@ -34,7 +34,7 @@ class SDLThreadpool
         SDL_Thread** pool;
         Updateable::ThreadStatus status;
 
-        ThreadSafeQueue queue;
+        ThreadSafeQueue<Updateable*> queue;
 
         static int poolFunc(void* thisPointer);
         void process(void);

@@ -18,7 +18,7 @@ class Entity : public Updateable
         Updateable::ThreadStatus update(void)
         {
             health--;
-            fprintf(stderr, "Health: %d\n", health);
+            fprintf(stderr, "Health: %d\tThread: %d\n", health, (int)SDL_ThreadID());
 
             return Work;
         }
@@ -27,14 +27,14 @@ class Entity : public Updateable
 int main(int argc, char** argv)
 {
     SDLThreadpool* pool = new SDLThreadpool();
-    Entity** test = new Entity*[30];
+    Entity** test = new Entity*[300];
 
-    for(int i = 0; i < 30; ++i)
+    for(int i = 0; i < 300; ++i)
     {
         test[i] = new Entity(i+1);
     }
 
-    for(int i = 0; i < 30; ++i)
+    for(int i = 0; i < 300; ++i)
         pool->addJob(test[i]);
 
     pool->closePool();

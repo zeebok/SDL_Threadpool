@@ -1,12 +1,14 @@
 #include "ThreadSafeQueue.h"
 
-ThreadSafeQueue::ThreadSafeQueue(void)
+template <class T>
+ThreadSafeQueue<T>::ThreadSafeQueue(void)
 {
     lock = SDL_CreateMutex();
     available = SDL_CreateCond();
 }
 
-ThreadSafeQueue::~ThreadSafeQueue(void)
+template <class T>
+ThreadSafeQueue<T>::~ThreadSafeQueue(void)
 {
     SDL_LockMutex(lock);
     while(!workQueue.empty())
@@ -19,7 +21,8 @@ ThreadSafeQueue::~ThreadSafeQueue(void)
 
 //ThreadSafeQueue::ThreadSafeQueue(ThreadSafeQueue* q);
 
-void ThreadSafeQueue::push(Updateable* job)
+template <class T>
+void ThreadSafeQueue<T>::push(T job)
 {
     SDL_LockMutex(lock);
     workQueue.push(job);
@@ -27,12 +30,13 @@ void ThreadSafeQueue::push(Updateable* job)
     SDL_UnlockMutex(lock);
 }
 
-Updateable* ThreadSafeQueue::pop(void)
+template <class T>
+T ThreadSafeQueue<T>::pop(void)
 {
     SDL_LockMutex(lock);
     while(workQueue.empty())
         SDL_CondWait(available,lock);
-    Updateable* top = workQueue.front();
+    T top = workQueue.front();
     workQueue.pop();
     SDL_UnlockMutex(lock);
 
