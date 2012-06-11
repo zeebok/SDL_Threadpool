@@ -72,7 +72,6 @@
 		<Unit filename="include\Updateable.h" />
 		<Unit filename="src\Event.cpp" />
 		<Unit filename="src\SDLThreadpool.cpp" />
-		<Unit filename="src\ThreadSafeQueue.cpp" />
 		<Unit filename="src\threading.cpp" />
 		<Extensions>
 			<code_completion />
